@@ -114,7 +114,7 @@ const Account = () => {
   return (
     <PageWrapper>
       <TopComponent>
-        <FormBox margin-top="0px" width="50vh">
+        <FormBox margin-top={"0px"} width="50vh">
           <Title>Add Income/Expenditure Record</Title>
           <form onSubmit={handleSubmit}>
             <InputField

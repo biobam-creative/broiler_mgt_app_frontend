@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+import Loading from "./Loading";
 import InputField from "./InputField";
 import config from "../config.json";
 import httpServices from "../services/httpServices";
@@ -31,6 +31,7 @@ import {
   TopComponent,
 } from "./styledComponents";
 import { Navigate, useNavigate, Link } from "react-router-dom";
+import { primaryColor } from "../constants";
 
 const AddWeightRecord = () => {
   const { flockId } = useParams();
@@ -89,9 +90,7 @@ const AddWeightRecord = () => {
       config.apiUrl + `/records/weight_details/${flockId}/${weightRecord.id}`
     );
     if (response.status === 200) {
-      // const newWeightRecords = weightRecords.splice(index, 1);
       setWeightRecords(response.data);
-      console.log(response.data);
       alert("Entry Deleted");
     }
     setLoading(false);
@@ -101,7 +100,7 @@ const AddWeightRecord = () => {
     return <Navigate to="/login" replace />;
   }
   if (loading) {
-    return <div>Loading ....</div>;
+    return <Loading type="spinner" color={primaryColor} />;
   }
   return (
     <PageWrapper>
@@ -146,14 +145,6 @@ const AddWeightRecord = () => {
             compare{" "}
           </InputField> */}
           <ResponsiveContainer>
-            <CompareButton
-              onClick={() => {
-                setCompareWeight(!compareWeight);
-                console.log(compareWeight);
-              }}
-            >
-              Compare Weight
-            </CompareButton>
             <LineChart>
               <CartesianGrid />
               <XAxis dataKey="age" interval={"preserveStartEnd"} />

@@ -5,6 +5,8 @@ import httpServices from "../services/httpServices";
 
 import { PageWrapper, FormBox, Title, StyledButton } from "./styledComponents";
 import { Navigate, useNavigate, Link, useParams } from "react-router-dom";
+import Loading from "./Loading";
+import { primaryColor } from "../constants";
 
 // const FormBox = styled.div`
 //   padding: 1.2rem;
@@ -74,7 +76,7 @@ const EditWeightRecord = () => {
     return <Navigate to="/login" replace />;
   }
   if (loading) {
-    return <div>Loading ....</div>;
+    return <Loading type={"spinner"} color={primaryColor} />;
   }
   return (
     <PageWrapper>
