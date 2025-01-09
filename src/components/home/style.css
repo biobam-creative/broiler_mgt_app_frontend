@@ -1,0 +1,35 @@
+.background {
+  background-color: #fff8e9;
+  height: 100vh;
+  min-width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.large-text {
+  color: black;
+  font-size: 4.5rem;
+  font-weight: bold;
+  font-family: lato;
+  text-align: start;
+}
+.text {
+  flex: 1;
+}
+.image {
+  background-image: "./../../assets/bookkeeping.png";
+  flex: 1;
+}
+.primary-button {
+  background-color: tomato;
+  color: white;
+  margin-right: 2rem;
+}
+.secondary-button {
+  border: tomato;
+  color: tomato;
+  margin-right: 2rem;
+}
